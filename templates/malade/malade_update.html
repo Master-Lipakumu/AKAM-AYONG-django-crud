@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="content">
+        <div class="form-group">
+            <div class="main">
+                <h2>formulaire de mise a jour des malades</h2>
+                <!-- Create a Form -->
+                <form method="POST">
+                    <!-- Security token by Django -->
+                    {% csrf_token %}
+            
+                    <!-- form as paragraph -->
+                    {{ form|crispy}}
+            
+                    <input type="submit" value="Update">
+                </form>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

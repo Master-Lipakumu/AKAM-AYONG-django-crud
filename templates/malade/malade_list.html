@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+    <div class="content">
+        <div class="table">
+            <h2> liste des malades enregistré</h2>
+            <table>
+                <tr>
+                    <th>Profile</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>email</th>
+                    <th>Contacte</th>
+                    <th>Maladie</th>
+                    <th>Date et heure d'arriver</th>
+                    <th>Date et heure de départ</th>
+                    <th>Descriptions</th>
+                </tr>
+                {% for i in malades %}
+                <tr>
+                    <td><img href="{{i.profile.url}}" alt="{{i.nom}}"></td>
+                    <td>{{i.nom}}</td>
+                    <td>{{i.prenom}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.maladie}}</td>
+                    <td>{{i.date_heure_A}}</td>
+                    <td>{{i.date_heure_d}}</td>
+                    <td>{{i.description}}</td>
+                    <td><a href="{% url 'malade:maladeform'%}">Ajouter</a></td>
+                    <td><a href="update/{{i.id}}">modifier</a></td>
+                    <td><a href="delete/{{i.id}}">delete</a></td>
+                    {% empty %}
+                    <td>il n'y a aucun malade enregistré pour le moment</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

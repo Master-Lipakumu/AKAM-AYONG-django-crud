@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+    <div class="content">
+        <div class="main"><h2>pour l'instant il y a <span>{{compte_malade_list}} de malade enregistré</span></h2></div><br>
+        
+        <button class="btn btn-dark"><a href="{% url 'malade:maladeform'%}">formulaire Ajout des malades</a></button>
+        
+        <button class="btn btn-warning"><a href="{% url 'malade:maladeview'%}">voir tout les malades enregistrés</a></button>
+    </div>
+</div>
+{% endblock content %}
+        
